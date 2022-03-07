@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <top>
       <VBox prefHeight="58.0" prefWidth="1009.0" BorderPane.alignment="CENTER">
@@ -79,21 +78,35 @@
       </TextArea>
    </bottom>
    <center>
-      <VBox prefHeight="50.0" prefWidth="1009.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="containerCmds" disable="true" prefHeight="50.0" prefWidth="1009.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="7.0" prefWidth="755.0" />
             <HBox prefHeight="35.0" prefWidth="1009.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="39.0" />
-                  <Label text="Commande">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="29.0" />
+                  <Button fx:id="btnClear" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnClearClicked" prefHeight="25.0" prefWidth="74.0" text="clear" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="890.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Label text="File name">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="10.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
-                  <TextField fx:id="cmdV" disable="true" prefHeight="25.0" prefWidth="151.0" />
+                  <TextField fx:id="cmdV" prefHeight="25.0" prefWidth="151.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="98.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
-                  <Button fx:id="btnSend" disable="true" mnemonicParsing="false" onAction="#btnSendClicked" prefHeight="25.0" prefWidth="74.0" text="Send" />
+                  <Button fx:id="btnCd" mnemonicParsing="false" onAction="#btnCdClicked" prefHeight="25.0" prefWidth="74.0" text="cd" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="276.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnMkdir" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnMkdirClicked" prefHeight="25.0" prefWidth="74.0" text="mkdir" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="366.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnRmdir" layoutX="382.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRmdirClicked" prefHeight="25.0" prefWidth="74.0" text="rmdir/rm" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="456.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnGet" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnGetClicked" prefHeight="25.0" prefWidth="74.0" text="get" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="546.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnStor" layoutX="562.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnStorClicked" prefHeight="25.0" prefWidth="74.0" text="stor" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="636.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnLs" layoutX="652.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnLsClicked" prefHeight="25.0" prefWidth="74.0" text="ls" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="28.0" layoutX="726.0" layoutY="10.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                  <Button fx:id="btnPwd" layoutX="742.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPwdClicked" prefHeight="25.0" prefWidth="74.0" text="pwd" />
                </children>
             </HBox>
          </children>
