@@ -14,7 +14,7 @@ public class CommandeGET extends Commande {
 	public void execute(UserInfo userInfo) {
 		if (commandeArgs.length == 1) {
 			int port = 3031;
-			File tempFile = new File(".\\FILES\\"+commandeArgs[0]);
+			File tempFile = userInfo.curPath.toPath().resolve(commandeArgs[0]).toFile();
 			if(!tempFile.exists()) {
 				ps.println("NotFound");
 				return;

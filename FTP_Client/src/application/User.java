@@ -82,7 +82,8 @@ public class User {
 	
 	public static void getCmd(String filename,TextArea response,Label errorsV) throws IOException{	
 		  String serverRes = read.readLine();
-	       if(serverRes.equals("download")) {
+		  System.out.println("serverRes >> "+serverRes);
+	      if(serverRes.equals("download")) {
 		      String s =  read.readLine();
 		      int port = Integer.valueOf(s.split(" ")[2]);
 		      Socket socket = new Socket(User.host, port);
@@ -97,12 +98,13 @@ public class User {
 		      while(is.read(buf) != -1 ) {
 		    	  fos.write(buf);
 		      }
+		      fos.close();
+		      is.close();
+		      socket.close();	
 		      s =  read.readLine();
 		      writeResponse(">> "+filename+" Downloaded \n",response);
 		      
-		      fos.close();
-		      is.close();
-		      socket.close();		    
+		      	    
 			}else if(serverRes.equals("NotFound")){
 				errorsV.setVisible(true);
 				errorsV.setText("File not found");

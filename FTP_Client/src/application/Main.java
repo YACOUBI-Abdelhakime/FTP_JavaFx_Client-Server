@@ -13,7 +13,7 @@ public class Main extends Application {
 		try { 
 			Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 			Scene scene = new Scene(root);			
-			primaryStage.setTitle("YACOUBI ABDELHAKIME");
+			primaryStage.setTitle("Client FTP");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
