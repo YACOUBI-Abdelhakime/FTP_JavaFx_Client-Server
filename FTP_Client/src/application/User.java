@@ -22,8 +22,8 @@ public class User {
 	public static boolean connected = false;
 	public static BufferedReader read;
 	public static PrintStream write;
-	public static String res = "";//server response
-	public static String req = "";//request sended
+	public static String res = "";
+	public static String req = "";
 	
 	public static boolean connectServer(String host,String port) {
 		try {
@@ -65,7 +65,6 @@ public class User {
 				return 1;
 			}
 		} catch (IOException e) {
-			//e.printStackTrace();
 			return 404;
 		}
 	}
@@ -82,9 +81,8 @@ public class User {
 	
 	public static void getCmd(String filename,TextArea response,Label errorsV) throws IOException{	
 		  String serverRes = read.readLine();
-		  System.out.println("serverRes >> "+serverRes);
 	      if(serverRes.equals("download")) {
-		      String s =  read.readLine();
+		      String s =  read.readLine();  
 		      int port = Integer.valueOf(s.split(" ")[2]);
 		      Socket socket = new Socket(User.host, port);
 		      
@@ -125,10 +123,9 @@ public class User {
 		      writeResponse(">> Uploading "+filePath+" please wait ...\n",response);
 		      
 		      byte[] buf = new byte[512];
-		      int nb = 101010;
+		      int nb = 0;
 		      while(( nb = fis.read(buf)) != -1 ) {
 		    	  os.write(buf);
-		    	  System.out.println("NB+> "+nb);
 		      }
 		      fis.close();
 		      os.close();

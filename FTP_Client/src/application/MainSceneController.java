@@ -65,6 +65,12 @@ public class MainSceneController {
 	// Event Listener on Button[#btnLogin].onAction
 	@FXML
 	public void btnLoginClicked(ActionEvent event) {
+		
+		if(hostV.getText().trim().equals("") || portV.getText().trim().equals("") || usernameV.getText().trim().equals("") || passwordV.getText().trim().equals("")) {
+			errorsV.setVisible(true);
+			errorsV.setText("Please fill all fields");
+			return;
+		}
 		User.connected  = User.connectServer(hostV.getText(),portV.getText());
 		
 		if(User.connected) {
@@ -126,6 +132,12 @@ public class MainSceneController {
 	// Event Listener on Button[#btnSignup].onAction
 	@FXML
 	public void btnSignupClicked(ActionEvent event) {
+		if(hostV.getText().trim().equals("") || portV.getText().trim().equals("") || usernameV.getText().trim().equals("") || passwordV.getText().trim().equals("")) {
+			errorsV.setVisible(true);
+			errorsV.setText("Please fill all fields");
+			return;
+		}
+		
 		User.connected  = User.connectServer(hostV.getText(),portV.getText());
 		
 		if(User.connected) {
@@ -203,25 +215,39 @@ public void btnClearClicked(ActionEvent event) {
 // Event Listener on Button[#btnCd].onAction
 @FXML
 public void btnCdClicked(ActionEvent event) {
+	if(cmdV.getText().trim().equals("")) {
+		errorsV.setVisible(true);
+		errorsV.setText("Please write the file name");
+		return;
+	}
 	sendCmds("cd",true);
 }
 // Event Listener on Button[#btnMkdir].onAction
 @FXML
 public void btnMkdirClicked(ActionEvent event) {
+	if(cmdV.getText().trim().equals("")) {
+		errorsV.setVisible(true);
+		errorsV.setText("Please write the file name");
+		return;
+	}
 	sendCmds("mkdir",true);
 }
 // Event Listener on Button[#btnRmdir].onAction
 @FXML
 public void btnRmdirClicked(ActionEvent event) {
+	if(cmdV.getText().trim().equals("")) {
+		errorsV.setVisible(true);
+		errorsV.setText("Please write the file name");
+		return;
+	}
 	sendCmds("rmdir",true);
 }
 // Event Listener on Button[#btnGet].onAction
 @FXML
 public void btnGetClicked(ActionEvent event) {
-	if(cmdV.getText().equals("")) {
+	if(cmdV.getText().trim().equals("")) {
 		errorsV.setVisible(true);
 		errorsV.setText("Please write the file name");
-		User.writeResponse("Please write the file name\n", response);
 		return;
 	}
 	User.sendCmd("get "+cmdV.getText().trim());
@@ -236,10 +262,9 @@ public void btnGetClicked(ActionEvent event) {
 // Event Listener on Button[#btnStor].onAction
 @FXML
 public void btnStorClicked(ActionEvent event) {
-	if(cmdV.getText().equals("")) {
+	if(cmdV.getText().trim().equals("")) {
 		errorsV.setVisible(true);
 		errorsV.setText("Please write the file name");
-		User.writeResponse("Please write the file name\n", response);
 		return;
 	}
 	File tempFile = new File(".\\FILES\\"+cmdV.getText().trim());

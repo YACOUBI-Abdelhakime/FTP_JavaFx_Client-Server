@@ -35,7 +35,6 @@ public class CommandeSTOR extends Commande {
 					fos.write(buf);
 				}
 				
-				System.err.println("Fin while Stor");
 		    	fos.close();
 			    serverFtp.close();
 			    sockFTP.close();
