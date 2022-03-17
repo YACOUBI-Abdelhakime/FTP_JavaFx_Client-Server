@@ -267,7 +267,7 @@ public void btnStorClicked(ActionEvent event) {
 		errorsV.setText("Please write the file name");
 		return;
 	}
-	File tempFile = new File(".\\FILES\\"+cmdV.getText().trim());
+	File tempFile = new File(".\\FILES\\"+cmdV.getText().trim()); 
 	if(tempFile.exists()) {
 		User.sendCmd("stor "+cmdV.getText().trim());
 		try {
